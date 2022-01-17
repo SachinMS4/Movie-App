@@ -11,7 +11,7 @@ function Overview() {
   const param = useParams();
   const movies = useContext(MovieContext);
 
-  const [movie] = movies.filter((item) => item.id == param.id);
+  const [movie] = movies.filter((item) => item.id === param.id);
   const imgUrl = "http://image.tmdb.org/t/p/w500/";
 
   let { poster_path, id, original_title, vote_average, popularity } = movie;
