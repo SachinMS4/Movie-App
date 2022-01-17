@@ -1,0 +1,38 @@
+.movie-details {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  color: white;
+  margin-bottom: 100px;
+}
+
+.movie-details > img {
+  padding-left: 50px;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.movie-info {
+  padding: 0 50px;
+  letter-spacing: 1px;
+  line-height: 2rem;
+  font-size: 1 rem;
+  margin-right: 10px;
+  text-align: justify;
+}
+
+.analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: baseline;
+  margin: 10px 0;
+  color: #79b8f3;
+}
+
+.analytics h3 {
+  margin: 10px 0;
+}

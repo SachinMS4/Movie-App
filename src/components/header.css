@@ -1,0 +1,26 @@
+.header {
+  background-color: #1a242f;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  width: 100%;
+  height: 75px;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.footer {
+  background-color: #1a242f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+  height: 50px;
+  margin-top: 2rem;
+}

@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@300;400;600&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  font-family: "Open Sans", sans-serif;
+  background-color: #0f171e;
+  color: #fff;
+  height: 100%;
+}
+
+/* background-colorr: #0f171e;
+$secondary-color: #1a242f;
+$font-primary: #ffffff;
+$font-secondary: #79b8f3; */
