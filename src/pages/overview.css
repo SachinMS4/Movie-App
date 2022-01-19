@@ -1,12 +1,13 @@
 .movie-details {
+  width: 100vw;
+  padding: 2rem 0;
   display: grid;
   grid-template-columns: 1fr 3fr;
   color: white;
-  margin-bottom: 100px;
 }
 
 .movie-details > img {
-  padding-left: 50px;
+  margin: 0 2rem;
   height: 500px;
   border-radius: 10px;
 }
@@ -16,11 +17,10 @@
 }
 
 .movie-info {
-  padding: 0 50px;
+  padding: 0 2rem;
   letter-spacing: 1px;
   line-height: 2rem;
   font-size: 1 rem;
-  margin-right: 10px;
   text-align: justify;
 }
 
@@ -29,10 +29,17 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: baseline;
-  margin: 10px 0;
+  padding: 10px 0;
   color: #79b8f3;
 }
 
 .analytics h3 {
-  margin: 10px 0;
+  padding: 1rem 0;
+}
+
+@media screen and (max-width: 600px) {
+  .movie-details {
+    display: flex;
+    flex-direction: column;
+  }
 }

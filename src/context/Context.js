@@ -15,8 +15,6 @@ export const MovieProvider = ({ children }) => {
     axios.get(url).then((resp) => setmovie(resp.data.results));
   }, [url]);
 
-  console.log(movie);
-
   return (
     <MovieContext.Provider value={movie}>{children}</MovieContext.Provider>
   );

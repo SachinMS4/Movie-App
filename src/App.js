@@ -9,9 +9,9 @@ import { MovieProvider } from "./context/Context";
 
 function App() {
   return (
-    <div className="app">
-      <MovieProvider>
-        <BrowserRouter>
+    <MovieProvider>
+      <BrowserRouter>
+        <div className="app">
           <Header />
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
@@ -19,9 +19,9 @@ function App() {
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
           <Footer />
-        </BrowserRouter>
-      </MovieProvider>
-    </div>
+        </div>
+      </BrowserRouter>
+    </MovieProvider>
   );
 }
 

@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MovieContext } from "../context/Context";
 
+import "./movie.css";
+
 import MovieCard from "./MovieCard";
 
 export default function Movie() {
