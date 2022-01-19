@@ -11,14 +11,14 @@ function Overview() {
   const param = useParams();
   const movies = useContext(MovieContext);
 
-  console.table(param);
-
   const [movie] = movies.filter((item) => Number(item.id) === Number(param.id));
 
   if (!movie) return <h1>Loading...</h1>;
-  const imgUrl = "http://image.tmdb.org/t/p/w500/";
+  const imgUrl = "https://image.tmdb.org/t/p/w500/";
 
   let { poster_path, id, original_title, vote_average, popularity } = movie;
+
+  console.log(param, poster_path);
 
   return (
     <div key={id} className="movie-details">
