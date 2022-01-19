@@ -13,7 +13,7 @@ function Overview() {
 
   const [movie] = movies.filter((item) => Number(item.id) === Number(param.id));
 
-  if (!movie) return <h1>Error...!</h1>;
+  if (!movie) return <h1>Loading...</h1>;
   const imgUrl = "http://image.tmdb.org/t/p/w500/";
 
   let { poster_path, id, original_title, vote_average, popularity } = movie;
