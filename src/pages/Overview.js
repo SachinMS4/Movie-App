@@ -11,6 +11,8 @@ function Overview() {
   const param = useParams();
   const movies = useContext(MovieContext);
 
+  console.table(param);
+
   const [movie] = movies.filter((item) => Number(item.id) === Number(param.id));
 
   if (!movie) return <h1>Loading...</h1>;
