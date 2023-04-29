@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
+import { MovieContext } from "../../context/Context";
 import "./style.css";
 import ratingIcon from "../../images/star.png";
 import popularIcon from "../../images/trending.png";
-
-import { MovieContext } from "../../context/Context";
 
 function Overview() {
 	const param = useParams();
@@ -23,20 +22,36 @@ function Overview() {
 			<img src={`${imgUrl}${poster_path}`} alt="Movie Poster"></img>
 
 			<div className="movie-info">
-				<h3 className="title">{original_title}</h3>
+				<h3 className="movie-title">{original_title}</h3>
 				<div className="analytics">
-					<h3 className="rating">
-						Rating: {vote_average}
-						<img src={ratingIcon} alt="Rating"></img>
-					</h3>
-					<h3 className="popular">
-						Popularity: {popularity}
-						<img src={popularIcon} alt="Popular"></img>
-					</h3>
-					<h3>Votes: {movie.vote_count}</h3>
-					<h3>Release Date: {movie.release_date}</h3>
+					<div>
+						<div className="data-point">
+							<p>
+								{vote_average}
+								<img src={ratingIcon} alt="Rating"></img>
+							</p>
+							<p>Rating</p>
+						</div>
+						<div className="data-point">
+							<p>
+								{popularity}
+								<img src={popularIcon} alt="Popular"></img>
+							</p>
+							<p>Popularity</p>
+						</div>
+					</div>
+					<div>
+						<div className="data-point">
+							<p>{movie.vote_count}</p>
+							<p>Votes </p>
+						</div>
+						<div className="data-point">
+							<p>{movie.release_date}</p>
+							<p>Release Date</p>
+						</div>
+					</div>
 				</div>
-				<p>{movie.overview}</p>
+				<p className="movie-overview">{movie.overview}</p>
 			</div>
 		</div>
 	);
