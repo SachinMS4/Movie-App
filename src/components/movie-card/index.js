@@ -14,14 +14,22 @@ function MovieCard({ data }) {
 			<img className="poster" src={`${imgUrl}${poster_path}`} alt="Movie Poster" />
 			<div className="card-details">
 				<h3>{original_title.toUpperCase()}</h3>
-				<h3 className="rating">
-					{vote_average}
-					<img src={ratingIcon} alt="Rating" />
-				</h3>
-				<h3 className="popular">
-					{popularity}
-					<img src={popularIcon} alt="Popular" />
-				</h3>
+				<div className="movie-data">
+					<div>
+						<p>Rating</p>
+						<p className="rating">
+							{vote_average}
+							<img src={ratingIcon} alt="Rating" />
+						</p>
+					</div>
+					<div>
+						<p>Popularity</p>
+						<p className="popular">
+							{popularity}
+							<img src={popularIcon} alt="Popular" />
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

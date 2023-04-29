@@ -1,28 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@300;400;600&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  background-color: #1a1a1a;
+	background-color: #1a1a1a;
 }
 
 .app-wrapper {
-  font-family: "Open Sans", sans-serif;
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-  height: 100%;
-  min-height: 100vh;
+	font-family: "Poppins", sans-serif;
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	height: 100%;
+	min-height: 100vh;
 }
 
 .app-body {
-  margin-top: 6rem;
+	margin-top: 6rem;
 }
-/* background-colorr: #0f171e;
-$secondary-color: #1a242f;
-$font-primary: #ffffff;
-$font-secondary: #79b8f3; */
