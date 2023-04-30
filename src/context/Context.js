@@ -1,20 +1,18 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
-//API KEY: 1001cf476e9abff27f533980790d59a8
-
-export const MovieContext = createContext();
+const API_KEY = process.env.REACT_APP_THE_MOVIE_DB_KEY;
 
 export const MovieProvider = ({ children }) => {
-  const [movie, setmovie] = useState([]);
+	const [movie, setmovie] = useState([]);
 
-  const url = "https://api.themoviedb.org/3/trending/movie/week?api_key=1001cf476e9abff27f533980790d59a8";
+	let url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
 
-  useEffect(() => {
-    axios.get(url).then((resp) => setmovie(resp.data.results));
-  }, [url]);
+	useEffect(() => {
+		axios.get(url).then((resp) => setmovie(resp.data.results));
+	}, [url]);
 
-  return (
-    <MovieContext.Provider value={movie}>{children}</MovieContext.Provider>
-  );
+	return <MovieContext.Provider value={movie}>{children}</MovieContext.Provider>;
 };
+
+export const MovieContext = createContext();

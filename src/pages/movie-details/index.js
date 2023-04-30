@@ -1,57 +1,93 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
-import { MovieContext } from "../../context/Context";
 import "./style.css";
 import ratingIcon from "../../images/star.png";
 import popularIcon from "../../images/trending.png";
 
+const IMG_BASE_URL = "https://image.tmdb.org/t/p/w500/";
+const API_KEY = process.env.REACT_APP_THE_MOVIE_DB_KEY;
+
 function Overview() {
 	const param = useParams();
-	const movies = useContext(MovieContext);
+	const url = `https://api.themoviedb.org/3/movie/${param.id}?api_key=${API_KEY}`;
 
-	const [movie] = movies.filter((item) => Number(item.id) === Number(param.id));
+	const [movieDetails, setMovieDetails] = useState();
 
-	if (!movie) return <h1>Loading...</h1>;
+	useEffect(() => {
+		axios.get(url).then((resp) => setMovieDetails(resp.data));
+	}, [url]);
 
-	const imgUrl = "https://image.tmdb.org/t/p/w500/";
-	let { poster_path, id, original_title, vote_average, popularity } = movie;
+	if (!movieDetails) return <h1>Loading...</h1>;
 
 	return (
-		<div key={id} className="movie-details">
-			<img src={`${imgUrl}${poster_path}`} alt="Movie Poster"></img>
+		<div key={movieDetails.id} className="movie-details">
+			<img src={`${IMG_BASE_URL}${movieDetails.poster_path}`} alt="Movie Poster"></img>
 
-			<div className="movie-info">
-				<h3 className="movie-title">{original_title}</h3>
+			<div className="movie-info" style={{ backgroundImage: `${IMG_BASE_URL}${movieDetails.backdrop_path}` }}>
+				<h3 className="movie-title">{movieDetails.original_title}</h3>
+
+				<p>
+					{movieDetails?.genres?.map((genre) => (
+						<span id={genre.id}>{genre.name}</span>
+					))}
+				</p>
+
 				<div className="analytics">
-					<div>
-						<div className="data-point">
-							<p>
-								{vote_average}
-								<img src={ratingIcon} alt="Rating"></img>
-							</p>
-							<p>Rating</p>
-						</div>
-						<div className="data-point">
-							<p>
-								{popularity}
-								<img src={popularIcon} alt="Popular"></img>
-							</p>
-							<p>Popularity</p>
-						</div>
+					<div className="data-point">
+						<p>
+							{movieDetails.vote_average}
+							<img src={ratingIcon} alt="Rating"></img>
+						</p>
+						<p>Rating</p>
 					</div>
-					<div>
-						<div className="data-point">
-							<p>{movie.vote_count}</p>
-							<p>Votes </p>
-						</div>
-						<div className="data-point">
-							<p>{movie.release_date}</p>
-							<p>Release Date</p>
-						</div>
+					<div className="data-point">
+						<p>
+							{movieDetails.popularity}
+							<img src={popularIcon} alt="Popular"></img>
+						</p>
+						<p>Popularity</p>
+					</div>
+					<div className="data-point">
+						<p>{movieDetails.vote_count}</p>
+						<p>Votes </p>
+					</div>
+					<div className="data-point">
+						<p>{movieDetails.release_date}</p>
+						<p>Release Date</p>
+					</div>
+					<div className="data-point">
+						<p>
+							{movieDetails?.budget
+								? new Intl.NumberFormat("en-US", {
+										style: "currency",
+										currency: "USD",
+										notation: "compact",
+								  }).format(movieDetails?.budget)
+								: "NA"}
+						</p>
+						<p>Budget </p>
+					</div>
+					<div className="data-point">
+						<p>{movieDetails?.runtime} minutes</p>
+						<p>Runtime</p>
+					</div>
+					<div className="data-point">
+						<p>
+							{movieDetails?.revenue
+								? new Intl.NumberFormat("en-US", {
+										style: "currency",
+										currency: "USD",
+										notation: "compact",
+								  }).format(movieDetails?.revenue)
+								: "NA"}
+						</p>
+						<p>Revenue </p>
 					</div>
 				</div>
-				<p className="movie-overview">{movie.overview}</p>
+
+				<p className="movie-overview">{movieDetails.overview}</p>
 			</div>
 		</div>
 	);
