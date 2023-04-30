@@ -64,10 +64,3 @@ span {
 .movie-overview {
 	margin-top: 2rem;
 }
-
-@media screen and (max-width: 600px) {
-	.movie-details {
-		display: flex;
-		flex-direction: column;
-	}
-}

@@ -67,6 +67,7 @@ div h3:nth-child(2) {
 	cursor: pointer;
 	object-fit: fill;
 }
+
 .movie-data {
 	margin: 2rem 0.5rem 0;
 	display: flex;
@@ -76,4 +77,10 @@ div h3:nth-child(2) {
 .movie-data div p:first-child {
 	font-size: 0.9rem;
 	opacity: 0.75;
+}
+
+@media screen and (max-width: 768px) {
+	.movie-card {
+		opacity: 1;
+	}
 }
