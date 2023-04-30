@@ -14,20 +14,29 @@
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.movie-title {
-	font-size: 2rem;
-}
 
 .movie-info {
-	padding: 0 2rem;
+  padding: 0 2rem;
 	line-height: 2rem;
 	font-size: 1 rem;
+}
+
+.movie-title {
+  font-size: 2rem;
+}
+
+span {
+  border: 1px solid #6A6E76;
+  font-size: 12px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
 .analytics {
 	margin-top: 3rem;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 .data-point:first-child img {
