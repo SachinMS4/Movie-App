@@ -1,38 +1,41 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 
-import { MovieContext } from "../../context/Context";
 import MovieCard from "../../components/movie-card";
+import { useTrendingMovies } from "../../services/use-trending-movies";
 
 function Home() {
-  const movie = useContext(MovieContext);
+  const { data, hasNextPage, fetchNextPage, isLoading } = useTrendingMovies();
 
-  console.log("home");
+  const moviesList = useMemo(() => {
+    return data?.pages?.flatMap((page) => page?.results) || [];
+  }, [data]);
 
-  // Todo: Fetch and load next page when user scrolls to bottom.
+  // Fetch next page when user scrolls to bottom.
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleEndReached = () => {
       if (
         window.scrollY + window.innerHeight >=
         document.documentElement.scrollHeight
       ) {
-        const currentPageNo = 1;
-        if (currentPageNo) {
-          console.log("end reached");
-        }
+        if (hasNextPage) fetchNextPage();
       }
-    });
+    };
+
+    window.addEventListener("scroll", handleEndReached);
+
+    return () => window.removeEventListener("scroll", handleEndReached);
   }, []);
 
   // Todo: Add skeleton loader
-  if (!movie) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <>
       <h2 className="head-title">Top 20 Trending Movies of This Week</h2>
 
       <div className="container">
-        {movie?.map((item) => (
+        {moviesList?.map((item) => (
           <Link
             to={`/overview/${item.id}`}
             key={item.id}
