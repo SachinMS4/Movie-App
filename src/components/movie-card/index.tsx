@@ -1,21 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import ratingIcon from "../../images/star.png";
-import popularIcon from "../../images/trending.png";
-import "./style.css";
+import './style.css';
+import { images } from '../../images';
 
-function MovieCard({ data }) {
+function MovieCard({ data }: any) {
   let { poster_path, id, original_title, vote_average, popularity } = data;
 
-  const imgUrl = "http://image.tmdb.org/t/p/w500/";
+  const imgUrl = 'http://image.tmdb.org/t/p/w500/';
 
   return (
     <div key={id} className="movie-card">
-      <img
-        className="poster"
-        src={`${imgUrl}${poster_path}`}
-        alt="Movie Poster"
-      />
+      <img className="poster" src={`${imgUrl}${poster_path}`} alt="Movie Poster" />
 
       <div className="card-details">
         <h3>{original_title.toUpperCase()}</h3>
@@ -24,8 +19,8 @@ function MovieCard({ data }) {
           <div>
             <p>Rating</p>
             <p className="rating">
-              {vote_average || "NA"}
-              <img src={ratingIcon} alt="Rating" />
+              {vote_average || 'NA'}
+              <img src={images.icons.ratingIcon} alt="Rating" />
             </p>
           </div>
 
@@ -33,7 +28,7 @@ function MovieCard({ data }) {
             <p>Popularity</p>
             <p className="popular">
               {popularity}
-              <img src={popularIcon} alt="Popular" />
+              <img src={images.icons.popularityIcon} alt="Popular" />
             </p>
           </div>
         </div>

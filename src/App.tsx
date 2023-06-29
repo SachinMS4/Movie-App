@@ -1,18 +1,18 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import "./App.css";
-import Home from "./pages/home";
-import Overview from "./pages/movie-details";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import NotFound from "./pages/not-found";
+import './App.css';
+import Overview from './pages/movie-details';
+import Header from './components/header';
+import Footer from './components/footer';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import Home from './pages/home';
+import NotFound from './pages/not-found';
 // import { MovieProvider } from "./context/Context";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
   const queryClient = new QueryClient();
-
   return (
     <QueryClientProvider client={queryClient}>
       {/* <MovieProvider> */}
@@ -30,6 +30,8 @@ function App() {
         </div>
       </BrowserRouter>
       {/* </MovieProvider> */}
+
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
 }

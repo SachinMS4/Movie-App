@@ -1,4 +1,6 @@
-import axios from "axios";
+import { get } from "./axios-api";
+
+export const IMG_BASE_URL = "https://image.tmdb.org/t/p/w500/";
 
 interface TrendingMoviesResp {
   page: number;
@@ -24,20 +26,16 @@ interface TrendingMoviesResp {
 }
 
 // const API_KEY = process.env.REACT_APP_THE_MOVIE_DB_KEY;
-const API_KEY = "1001cf476e9abff27f533980790d59a8";
-
 export const trendingMovies = async (page = 1): Promise<TrendingMoviesResp> => {
   const url = `https://api.themoviedb.org/3/trending/movie/week`;
 
-  const { data } = await axios.get(url, { params: { page, api_key: API_KEY } });
+  const { data } = await get(url, { params: { page } });
   return data;
 };
 
-export const IMG_BASE_URL = "https://image.tmdb.org/t/p/w500/";
-
 export const movieDetails = async (movieId: string | undefined) => {
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
+  const url = `https://api.themoviedb.org/3/movie/${movieId}`;
 
-  const { data } = await axios.get(url);
+  const { data } = await get(url);
   return data;
 };

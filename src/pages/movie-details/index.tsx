@@ -1,11 +1,10 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
-import "./style.css";
-import ratingIcon from "../../images/star.png";
-import popularIcon from "../../images/trending.png";
-import { useMovieDetails } from "../../services/use-movie-details";
-import { IMG_BASE_URL } from "../../api/movies";
+import './style.css';
+import { useMovieDetails } from '../../services/use-movie-details';
+import { IMG_BASE_URL } from '../../api/movies';
+import { images } from '../../images';
 
 function Overview() {
   const param = useParams();
@@ -16,10 +15,7 @@ function Overview() {
 
   return (
     <div key={movieDetails.id} className="movie-details">
-      <img
-        src={`${IMG_BASE_URL}${movieDetails.poster_path}`}
-        alt="Movie Poster"
-      />
+      <img src={`${IMG_BASE_URL}${movieDetails.poster_path}`} alt="Movie Poster" />
 
       <div
         className="movie-info"
@@ -31,7 +27,7 @@ function Overview() {
         <p className="movie-tagline">{movieDetails.tagline}</p>
 
         <p className="movie-genre">
-          {movieDetails?.genres?.map((genre) => (
+          {movieDetails?.genres?.map((genre: any) => (
             <span id={genre.id}>{genre.name}</span>
           ))}
         </p>
@@ -40,7 +36,7 @@ function Overview() {
           <div className="data-point">
             <p>
               {movieDetails.vote_average}
-              <img src={ratingIcon} alt="Rating"></img>
+              <img src={images.icons.ratingIcon} alt="Rating"></img>
             </p>
             <p>Rating</p>
           </div>
@@ -48,7 +44,7 @@ function Overview() {
           <div className="data-point">
             <p>
               {movieDetails.popularity}
-              <img src={popularIcon} alt="Popular"></img>
+              <img src={images.icons.popularityIcon} alt="Popular"></img>
             </p>
             <p>Popularity</p>
           </div>
@@ -66,12 +62,12 @@ function Overview() {
           <div className="data-point">
             <p>
               {movieDetails?.budget
-                ? new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: "USD",
-                    notation: "compact",
+                ? new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    notation: 'compact',
                   }).format(movieDetails?.budget)
-                : "NA"}
+                : 'NA'}
             </p>
             <p>Budget </p>
           </div>
@@ -84,12 +80,12 @@ function Overview() {
           <div className="data-point">
             <p>
               {movieDetails?.revenue
-                ? new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: "USD",
-                    notation: "compact",
+                ? new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    notation: 'compact',
                   }).format(movieDetails?.revenue)
-                : "NA"}
+                : 'NA'}
             </p>
             <p>Revenue </p>
           </div>
