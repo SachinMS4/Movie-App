@@ -9,7 +9,7 @@ import { images } from '../../images';
 function Overview() {
   const param = useParams();
 
-  const { data: movieDetails, isLoading } = useMovieDetails(param?.id);
+  const { data: movieDetails, isLoading } = useMovieDetails(param?.id!);
 
   if (isLoading) return <h1>Loading...</h1>;
 

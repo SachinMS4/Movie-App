@@ -29,11 +29,11 @@ interface TrendingMoviesResp {
 export const trendingMovies = async (page = 1): Promise<TrendingMoviesResp> => {
   const url = `https://api.themoviedb.org/3/trending/movie/week`;
 
-  const { data } = await get(url, { params: { page } });
+  const { data } = await get(url, { page });
   return data;
 };
 
-export const movieDetails = async (movieId: string | undefined) => {
+export const movieDetails = async (movieId: string) => {
   const url = `https://api.themoviedb.org/3/movie/${movieId}`;
 
   const { data } = await get(url);
