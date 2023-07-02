@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './style.css';
-import { images } from '../../images';
+import { popularityIcon, ratingIcon } from '../../images';
 
 function MovieCard({ data }: any) {
   let { poster_path, id, original_title, vote_average, popularity } = data;
@@ -20,7 +20,7 @@ function MovieCard({ data }: any) {
             <p>Rating</p>
             <p className="rating">
               {vote_average || 'NA'}
-              <img src={images.icons.ratingIcon} alt="Rating" />
+              <img src={ratingIcon} alt="Rating" />
             </p>
           </div>
 
@@ -28,7 +28,7 @@ function MovieCard({ data }: any) {
             <p>Popularity</p>
             <p className="popular">
               {popularity}
-              <img src={images.icons.popularityIcon} alt="Popular" />
+              <img src={popularityIcon} alt="Popular" />
             </p>
           </div>
         </div>

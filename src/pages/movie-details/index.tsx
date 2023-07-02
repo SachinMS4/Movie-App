@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import './style.css';
 import { useMovieDetails } from '../../services/use-movie-details';
 import { IMG_BASE_URL } from '../../api/movies';
-import { images } from '../../images';
+import { ratingIcon, popularityIcon } from '../../images';
 
 function Overview() {
   const param = useParams();
@@ -36,7 +36,7 @@ function Overview() {
           <div className="data-point">
             <p>
               {movieDetails.vote_average}
-              <img src={images.icons.ratingIcon} alt="Rating"></img>
+              <img src={ratingIcon} alt="Rating"></img>
             </p>
             <p>Rating</p>
           </div>
@@ -44,7 +44,7 @@ function Overview() {
           <div className="data-point">
             <p>
               {movieDetails.popularity}
-              <img src={images.icons.popularityIcon} alt="Popular"></img>
+              <img src={popularityIcon} alt="Popular"></img>
             </p>
             <p>Popularity</p>
           </div>
