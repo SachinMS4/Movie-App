@@ -2,18 +2,19 @@ import React, { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import MovieCard from '../../../components/movie-card';
 import { useTrendingMovies } from '../../../services/use-trending-movies';
+import './styles.css';
 
-function TrendinMovies() {
-  const { data, hasNextPage, fetchNextPage, isLoading } = useTrendingMovies();
+const TrendingMovies = React.forwardRef<HTMLDivElement>((props, ref) => {
+  const { data, hasNextPage, fetchNextPage, isLoading, isFetchingNextPage } = useTrendingMovies();
 
   const moviesList = useMemo(() => data?.pages?.flatMap(page => page?.results) || [], [data]);
 
-  // Fetch next page when user scrolls to bottom.
+  // Fetch next page when user scrolls to end.
   useEffect(() => {
     const handleEndReached = () => {
       if (
         hasNextPage &&
-        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight
+        window.scrollY + window.innerHeight + 100 >= document.documentElement.scrollHeight
       ) {
         fetchNextPage();
       }
@@ -24,14 +25,13 @@ function TrendinMovies() {
     return () => window.removeEventListener('scroll', handleEndReached);
   }, [hasNextPage, fetchNextPage]);
 
-  // Todo: Add skeleton loader
-  if (isLoading) return <div>Loading...</div>;
-
   return (
-    <div>
-      <h2 className="head-title">Top 20 Trending Movies of This Week</h2>
+    <>
+      <h3 className="head-title" ref={ref}>
+        Top 20 Trending Movies of This Week
+      </h3>
 
-      <div className="container">
+      <div className="flex flex-wrap gap-8 justify-center">
         {moviesList?.map(item => (
           <Link
             to={`/overview/${item.id}`}
@@ -42,8 +42,19 @@ function TrendinMovies() {
           </Link>
         ))}
       </div>
-    </div>
-  );
-}
 
-export default TrendinMovies;
+      {(isLoading || isFetchingNextPage) && (
+        <div className="spinner">
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+});
+
+export default TrendingMovies;

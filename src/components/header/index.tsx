@@ -5,7 +5,7 @@ import './style.css';
 function Header() {
   return (
     <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
-      <h1 className="header">Trending Movies</h1>
+      <h1 className="header text-3xl z-20">Trending Movies</h1>
     </Link>
   );
 }

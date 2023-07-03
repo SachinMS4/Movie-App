@@ -4,7 +4,7 @@ import './style.css';
 import { popularityIcon, ratingIcon } from '../../images';
 
 function MovieCard({ data }: any) {
-  let { poster_path, id, original_title, vote_average, popularity } = data;
+  const { poster_path, id, original_title, vote_average, popularity } = data;
 
   const imgUrl = 'http://image.tmdb.org/t/p/w500/';
 

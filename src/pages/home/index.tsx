@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import HeroSection from './hero-section';
-import TrendinMovies from './trending-movies';
+import TrendingMovies from './trending-movies';
 
 function Home() {
+  const listRef = useRef(null);
+
+  const scrollToList = () => {
+    listRef?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div>
-      <HeroSection />
-      <TrendinMovies />
-    </div>
+    <>
+      <HeroSection scrollTo={scrollToList} />
+      <TrendingMovies ref={listRef} />
+    </>
   );
 }
 

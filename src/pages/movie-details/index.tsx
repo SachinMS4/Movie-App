@@ -9,16 +9,16 @@ import { ratingIcon, popularityIcon } from '../../images';
 function Overview() {
   const param = useParams();
 
-  const { data: movieDetails, isLoading } = useMovieDetails(param?.id!);
+  const { data: movieDetails, isLoading } = useMovieDetails(param?.id || '');
 
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <div key={movieDetails.id} className="movie-details">
+    <div key={movieDetails.id} className="movie-details mt-3">
       <img src={`${IMG_BASE_URL}${movieDetails.poster_path}`} alt="Movie Poster" />
 
       <div
-        className="movie-info"
+        className="movie-info ms-10"
         style={{
           backgroundImage: `${IMG_BASE_URL}${movieDetails.backdrop_path}`,
         }}

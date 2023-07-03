@@ -1,18 +1,26 @@
 {
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[json]": {
-      "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-      "editor.formatOnSave": true
-    },
-    "eslint.alwaysShowStatus": true,
-    "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+
+  // other settings
+  "tailwindCSS.includeLanguages": {
+    "javascript": "typescript",
+    "html": "HTML"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
   }
+}
