@@ -1,27 +1,16 @@
 .movie-details {
-  width: 100vw;
-  padding: 2rem 0;
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  color: white;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 .movie-details > img {
-  margin: 0 2rem;
-  height: 575px;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .movie-info {
-  padding: 0 2rem;
   line-height: 2rem;
   font-size: 1 rem;
-}
-
-.movie-title {
-  font-size: 2rem;
 }
 
 .movie-tagline {
@@ -31,10 +20,10 @@
 }
 
 .movie-genre span {
-  border: 1px solid #6a6e76;
+  border: 1px solid rgb(56 189 248);
   font-weight: 500;
   font-size: 12px;
-  margin-right: 5px;
+  margin-right: 20px;
   padding: 5px 10px;
   border-radius: 20px;
 }
@@ -57,7 +46,7 @@
 .data-point p:nth-child(1) {
   display: flex;
   align-items: center;
-  color: #79b8f3;
+  color: rgb(56 189 248);
 }
 
 .data-point p:nth-child(2) {

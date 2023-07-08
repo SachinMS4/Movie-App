@@ -4,8 +4,9 @@ import './style.css';
 
 function Header() {
   return (
-    <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
-      <h1 className="header text-3xl z-20">Trending Movies</h1>
+    <Link to="/" className='max-w-6xl mx-auto flex justify-between py-3 text-sky-400'>
+        <p className="font-bold  text-3xl z-20">Trending Movies</p>
+        {/* <p className='font-semibold'>Contact</p> */}
     </Link>
   );
 }

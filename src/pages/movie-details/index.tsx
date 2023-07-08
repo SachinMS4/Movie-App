@@ -11,19 +11,23 @@ function Overview() {
 
   const { data: movieDetails, isLoading } = useMovieDetails(param?.id || '');
 
+  console.log({movieDetails});
+  
+
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <div key={movieDetails.id} className="movie-details mt-3">
-      <img src={`${IMG_BASE_URL}${movieDetails.poster_path}`} alt="Movie Poster" />
+    <div key={movieDetails.id} className="movie-details max-w-6xl mx-auto my-5">
+      <img className='aspec-[3/2]' src={`${IMG_BASE_URL}${movieDetails.poster_path}`} alt="Movie Poster" />
 
       <div
         className="movie-info ms-10"
-        style={{
-          backgroundImage: `${IMG_BASE_URL}${movieDetails.backdrop_path}`,
-        }}
+        // style={{
+        //   background: `url(${IMG_BASE_URL}${movieDetails.backdrop_path})`,
+        //   backgroundRepeat: 'no-repeat',
+        // }}
       >
-        <h3 className="movie-title">{movieDetails.original_title}</h3>
+        <h3 className="text-3xl font-bold">{movieDetails.original_title}</h3>
         <p className="movie-tagline">{movieDetails.tagline}</p>
 
         <p className="movie-genre">

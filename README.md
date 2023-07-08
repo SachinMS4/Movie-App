@@ -1,6 +1,6 @@
 A Movie App built with HTML, CSS and ReactJs.
 
-The app displays the top 20 trending movies of the week.
+The app displays the top trending movies of the week.
 
 Click on a movie poster for movie details.
 

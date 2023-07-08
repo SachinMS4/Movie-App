@@ -5,11 +5,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './App.css';
 import Overview from './pages/movie-details';
 import Header from './components/header';
-import Footer from './components/footer';
+// import Footer from './components/footer';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Home from './pages/home';
 import NotFound from './pages/not-found';
-// import { MovieProvider } from "./context/Context";
 
 function App() {
   const queryClient = new QueryClient();
@@ -17,16 +16,16 @@ function App() {
     <QueryClientProvider client={queryClient}>
       {/* <MovieProvider> */}
       <BrowserRouter>
-        <div className="app-wrapper">
+        <div className="app-wrapper flex flex-col">
           <Header />
-          <div className="app-body">
+          <div className="app-body width-[100vw]">
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/overview/:id" element={<Overview />}></Route>
               <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </BrowserRouter>
       {/* </MovieProvider> */}

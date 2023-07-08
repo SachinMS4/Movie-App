@@ -9,8 +9,8 @@ function MovieCard({ data }: any) {
   const imgUrl = 'http://image.tmdb.org/t/p/w500/';
 
   return (
-    <div key={id} className="movie-card">
-      <img className="poster" src={`${imgUrl}${poster_path}`} alt="Movie Poster" />
+    <div key={id} className="movie-card hover:opacity-80">
+      <img className="poster object-cover" src={`${imgUrl}${poster_path}`} alt="Movie Poster" />
 
       <div className="card-details">
         <h3>{original_title.toUpperCase()}</h3>

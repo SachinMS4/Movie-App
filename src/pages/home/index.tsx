@@ -4,11 +4,9 @@ import HeroSection from './hero-section';
 import TrendingMovies from './trending-movies';
 
 function Home() {
-  const listRef = useRef(null);
+  const listRef = useRef<any>(null);
 
-  const scrollToList = () => {
-    listRef?.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const scrollToList = () => listRef?.current?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <>

@@ -26,21 +26,22 @@ const TrendingMovies = React.forwardRef<HTMLDivElement>((props, ref) => {
   }, [hasNextPage, fetchNextPage]);
 
   return (
-    <>
-      <h3 className="head-title" ref={ref}>
-        Top 20 Trending Movies of This Week
+    <div className='max-w-6xl mx-auto' ref={ref}>
+      <h3 className="text-3xl py-5 font-semibold">
+        Top Trending Movies of This Week
       </h3>
 
-      <div className="flex flex-wrap gap-8 justify-center">
-        {moviesList?.map(item => (
-          <Link
+      <div className="flex flex-wrap gap-20 justify-between">
+        {moviesList?.map((item, index) => 
+            {
+            return index < moviesList.length - moviesList.length % 3 &&<Link
             to={`/overview/${item.id}`}
             key={item.id}
             style={{ color: 'inherit', textDecoration: 'inherit' }}
           >
             <MovieCard data={item} />
-          </Link>
-        ))}
+          </Link>}
+        )}
       </div>
 
       {(isLoading || isFetchingNextPage) && (
@@ -53,7 +54,7 @@ const TrendingMovies = React.forwardRef<HTMLDivElement>((props, ref) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 });
 
